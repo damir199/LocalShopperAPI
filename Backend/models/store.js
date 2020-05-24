@@ -7,6 +7,7 @@ const storeSchema = mongoose.Schema({
     description: { type: String, required: true },
     opening_times: { type: String, required: true },
     rating: { type: String, required: true },
+    imgURL: { type: String, require: false }
 });
 
 module.exports = mongoose.model('Store', storeSchema);
