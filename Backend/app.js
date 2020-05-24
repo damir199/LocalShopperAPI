@@ -3,8 +3,10 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+const usersRoutes = require('./routes/users');
 const storesRoutes = require('./routes/stores');
 const productsRoutes = require('./routes/products');
+
 
 const app = express();
 
@@ -24,6 +26,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use('/api/users', usersRoutes);
 app.use('/api/stores', storesRoutes);
 app.use('/api/products', productsRoutes);
 
