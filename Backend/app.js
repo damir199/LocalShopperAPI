@@ -7,19 +7,21 @@ const usersRoutes = require('./routes/users');
 const storesRoutes = require('./routes/stores');
 const productsRoutes = require('./routes/products');
 
-
 const app = express();
 
 mongoose
-    .connect(process.env.MONGO_STRING, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-        console.log('Connected to database!');
-    })
-    .catch(() => {
-        console.log(mongoose.Error);
+	.connect(process.env.MONGO_STRING, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	})
+	.then(() => {
+		console.log('Connected to database!');
+	})
+	.catch(() => {
+		console.log(mongoose.Error);
 
-        console.log('Connection failed!');
-    });
+		console.log('Connection failed!');
+	});
 
 app.use(cors());
 
@@ -27,23 +29,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api/users', usersRoutes);
-app.use('/api/stores', storesRoutes);
-app.use('/api/products', productsRoutes);
-
-
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader(
-        'Access-Control-Allow-Headers',
-        'Origin, X-Requested-With, Content-Type, Accept'
-    );
-    res.setHeader(
-        'Access-Control-Allow-Methods',
-        'GET, POST, PATCH, PUT, DELETE, OPTIONS'
-    );
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader(
+		'Access-Control-Allow-Headers',
+		'Origin, X-Requested-With, Content-Type, Accept'
+	);
+	res.setHeader(
+		'Access-Control-Allow-Methods',
+		'GET, POST, PATCH, PUT, DELETE, OPTIONS'
+	);
 
-    next();
+	next();
 });
 
 module.exports = app;
