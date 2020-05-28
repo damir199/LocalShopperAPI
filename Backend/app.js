@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const usersRoutes = require('./routes/users');
+const vendorsRoutes = require('./routes/vendors');
 const storesRoutes = require('./routes/stores');
 const productsRoutes = require('./routes/products');
 
@@ -29,6 +30,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api/users', usersRoutes);
+app.use('/api/vendors', vendorsRoutes);
 
 app.use((req, res, next) => {
 	res.setHeader('Access-Control-Allow-Origin', '*');
