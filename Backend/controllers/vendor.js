@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
-const User = require('../models/vendor');
+const Vendor = require('../models/vendor');
 
 exports.creatVendor = (req, res, next) => {
 	//hash the provided password
