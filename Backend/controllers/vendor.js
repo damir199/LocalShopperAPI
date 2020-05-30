@@ -33,3 +33,4 @@ exports.creatVendor = (req, res, next) => {
 			});
 	});
 };
+

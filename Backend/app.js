@@ -2,11 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
 const usersRoutes = require('./routes/users');
 const vendorsRoutes = require('./routes/vendors');
-const storesRoutes = require('./routes/stores');
-const productsRoutes = require('./routes/products');
 
 const app = express();
 
@@ -20,7 +17,6 @@ mongoose
 	})
 	.catch(() => {
 		console.log(mongoose.Error);
-
 		console.log('Connection failed!');
 	});
 
